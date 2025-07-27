@@ -1,9 +1,8 @@
-package com.example.baro_15.domain;
+package com.example.baro_15.domain.user.domain;
 
+import com.example.baro_15.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
-
-import javax.accessibility.AccessibleRelation;
 
 @Entity
 @Table(name = "users")
@@ -11,7 +10,7 @@ import javax.accessibility.AccessibleRelation;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +24,11 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
-    private UserRole userRole;
+    @Builder.Default
+    private UserRole userRole = UserRole.USER;
 
-    @Builder
-    public User(String email, String password, UserRole userRole) {
+    public void updateRole(UserRole newRole) {
 
-        this.email = email;
-        this.password = password;
-        this.userRole = userRole;
+        this.userRole = newRole;
     }
 }
