@@ -37,9 +37,10 @@ public class SecurityConfig {
                         // 인증 없이 허용할 경로
                         .requestMatchers(
                                 "/auth/**",
-//                                "/auth/signup",
                                 "/swagger-ui/**",
-                                "/v3/api-docs/**" // swagger 문서 접근 허용(API 테스트 편의성 목적)
+                                "/v3/api-docs/**",
+                                "/swagger-ui.html",
+                                "/docs"// swagger 문서 접근 허용(API 테스트 편의성 목적)
                         ).permitAll()
 
 

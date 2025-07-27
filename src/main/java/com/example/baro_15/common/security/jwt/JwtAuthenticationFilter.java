@@ -37,7 +37,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private static final Set<String> SKIP_PATH = Set.of(
             "/auth/login",
             "/auth/signup",
-            "/auth/admin/users/{userId}/roles"
+            "/auth/admin/users/{userId}/roles",
+            "/swagger-ui/",
+            "/swagger-ui/**",
+            "/v3/api-docs",
+            "/v3/api-docs/**",
+            "/swagger-resources/**",
+            "/docs"
     );
 
     @Override
